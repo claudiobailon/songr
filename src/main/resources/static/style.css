@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  max-width: 960px;
+  background-color: rgb(13, 80, 13);
+  color: aliceblue;
+  text-align: center;
+
+}
+body{
+  font-size: 25px;
+}
+h1{
+  font-family: 'Pacifico', cursive;
+  font-size: 60px;
+}
+img{
+  width: 150px;
+  height: 150px;
+}
