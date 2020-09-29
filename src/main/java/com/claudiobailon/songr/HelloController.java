@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HelloController {
-    @GetMapping("/hello")
+    @GetMapping("/hello")//get route
     public String sayHello() {
-        return "hello";
+        return "hello";//sends to hello html
     }
 }
