@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1> Some Cool Albums</h1>
+
     <table>
         <tr>
             <th>Album</th>
@@ -25,6 +26,16 @@
         </tr>
 
     </table>
+    <form action="/albums" method="POST">
+        Add an Album!<br>
+        Album Title <input type="text" name="title">
+        Artist <input type="text" name="artist">
+        Song Count <input type="text" name="songCount"><br>
+        Length (In seconds) <input type="text" name="length">
+        Album Art URL <input type="text" name="imageURL">
+        <!--        <button type="submit">Add Album</button>-->
+        <input type="submit">
+    </form>
     <a href="/">Home</a><br>
 
 

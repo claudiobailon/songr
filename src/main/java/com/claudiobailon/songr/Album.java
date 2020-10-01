@@ -1,6 +1,16 @@
 package com.claudiobailon.songr;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Album {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    long id;
 
     private String title;
     private String artist;
@@ -15,6 +25,9 @@ public class Album {
         this.length = length;
         this.imageURL = imageURL;
     }
+
+    public Album(){}//default constructor
+
     public String getTitle() {
         return title;
     }
