@@ -26,7 +26,7 @@ public class Album {
         this.imageURL = imageURL;
     }
 
-    public Album(){}
+    public Album(){}//default constructor
 
     public String getTitle() {
         return title;
