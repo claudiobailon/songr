@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   max-width: 960px;
+  margin: auto;
   background-color: rgb(13, 80, 13);
   color: aliceblue;
   text-align: center;
@@ -16,4 +17,14 @@ h1{
 img{
   width: 150px;
   height: 150px;
+}
+form,input{
+background-color: aliceblue;
+color: rgb(10,10,10);
+margin-bottom: 5px;
+font-size 18px;
+
+}
+form{
+padding-bottom: 10px;
 }

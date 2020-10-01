@@ -23,7 +23,7 @@ public class AlbumController {
 
     @GetMapping("/albums")//get route
     public String showAlbums(Model m){
-        ArrayList<Album> albums = new ArrayList<>();
+        ArrayList<Album> albums = (ArrayList<Album>) albumRepository.findAll();
         albums.add( new Album(
                 "Transatlanticism",
                 "Death Cab for Cutie",
