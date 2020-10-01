@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -13,6 +14,15 @@ import java.util.ArrayList;
 public class AlbumController {
     @Autowired
     public AlbumRepository albumRepository;
+
+    @Autowired
+    public SongRepository songRepository;
+
+    @PostMapping("/albums/delete/{id}")//ToDo: Should this route be album not albums? Same for line 27
+    public RedirectView removeAlbum(@PathVariable long id){
+        albumRepository.deleteById(id);
+        return new RedirectView("/albums");
+    }
 
     @PostMapping("/albums")
     public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageURL){
