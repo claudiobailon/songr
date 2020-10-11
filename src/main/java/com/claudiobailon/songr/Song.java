@@ -11,9 +11,9 @@ public class Song {
     @ManyToOne
     public Album album;
 
-    public String title;
-    public int length;
-    public int trackNumber;
+    String title;
+    int length;
+    int trackNumber;
 
     public Song(Album album, String title, int length, int trackNumber) {
         this.album = album;
@@ -23,4 +23,12 @@ public class Song {
     }
 
     public Song(){};
+
+    public String getTitle() { return title; }
+
+    public int getLength() {return length; }
+
+    public int getTrackNumber() {return trackNumber; }
+
+    public Album getAlbum() {return album; }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>Title</title>
+</head>
+<body>
+
+
+    <div>
+        <p th:text="${album.title}" >Album Title</p>
+        <p th:text="${album.artist}">Artist</p>
+        <p th:text="${album.songCount}">Song Count</p>
+        <p th:text="${album.length}">Length</p>
+        <img th:src="${album.imageURL}" alt="Album Art">
+    <h2>Track List</h2>
+    <ol>
+        <li th:each="song: ${album.getSongs()}" th:text="song.title"></li>
+    </ol>
+    <form action="/song" method="POST">
+        Add a song!<br>
+        <input type="hidden" name="albumId" th:value="${album.id}">
+        Title: <input type="text" name="title">
+        Length(seconds):<input type="number" name="trackNumber">
+        <input type="submit" value="Add Song">
+    </form>
+    </div>
+
+
+<form action="/albums" method="GET">
+    <input type = "submit" value ="Back to Albums">
+</form>
+
+</body>
+</html>

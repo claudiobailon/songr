@@ -11,11 +11,11 @@ public class Album {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    private String title;
-    private String artist;
-    private int songCount;
-    private int length;
-    private String imageURL;
+    String title;
+    String artist;
+    int songCount;
+    int length;
+    String imageURL;
 
     @OneToMany(mappedBy = "albums", cascade = CascadeType.ALL)
     public List<Song> songs = new ArrayList<Song>();
@@ -33,7 +33,6 @@ public class Album {
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -41,7 +40,6 @@ public class Album {
     public String getArtist() {
         return artist;
     }
-
     public void setArtist(String artist) {
         this.artist = artist;
     }
@@ -49,7 +47,6 @@ public class Album {
     public int getSongCount() {
         return songCount;
     }
-
     public void setSongCount(int songCount) {
         this.songCount = songCount;
     }
@@ -57,7 +54,6 @@ public class Album {
     public int getLength() {
         return length;
     }
-
     public void setLength(int length) {
         this.length = length;
     }
@@ -65,8 +61,10 @@ public class Album {
     public String getImageURL() {
         return imageURL;
     }
-
     public void setImageUrl(String imageURL) {
         this.imageURL = imageURL;
     }
+
+    public long getId(){return id;}
+    public List<Song> getSongs(){ return songs;}
 }
