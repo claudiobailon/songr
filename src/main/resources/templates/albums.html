@@ -16,13 +16,18 @@
             <th>Track count</th>
             <th>Length(seconds)</th>
             <th>Album Art</th>
+            <th></th>
         </tr>
         <tr th:each="album : ${albums}">
             <td th:text="${album.title}" >Album Title</td>
             <td th:text="${album.artist}">Artist</td>
             <td th:text="${album.songCount}">Song Count</td>
             <td th:text="${album.length}">Length</td>
-            <td> <img th:src="${album.imageURL}"></td>
+            <td> <img th:src="${album.imageURL}" alt="Album Art"></td>
+           <td> <form class="view" action="/album" method="GET">
+                <input type="hidden" name="albumId" th:value="${album.id}">
+               <button type="submit">View Album</button>
+           </form></td>
         </tr>
 
     </table>
@@ -30,12 +35,14 @@
         Add an Album!<br>
         Album Title <input type="text" name="title">
         Artist <input type="text" name="artist">
-        Song Count <input type="text" name="songCount"><br>
-        Length (In seconds) <input type="text" name="length">
+        Song Count <input type="number" name="songCount"><br>
+        Length (In seconds) <input type="number" name="length">
         Album Art URL <input type="text" name="imageURL">
         <!--        <button type="submit">Add Album</button>-->
         <input type="submit" value = "Add Album">
     </form>
+
+    <a href="/songs">Song List</a><br>
     <a href="/">Home</a><br>
 
 

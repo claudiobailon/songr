@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
@@ -18,11 +19,11 @@ public class AlbumController {
     @Autowired
     public SongRepository songRepository;
 
-    @PostMapping("/albums/delete/{id}")//ToDo: Should this route be album not albums? Same for line 27
-    public RedirectView removeAlbum(@PathVariable long id){
-        albumRepository.deleteById(id);
-        return new RedirectView("/albums");
-    }
+//    @PostMapping("/albums/delete/{id}")//ToDo: Should this route be album not albums? Same for line 27
+//    public RedirectView removeAlbum(@PathVariable long id){
+//        albumRepository.deleteById(id);
+//        return new RedirectView("/albums");
+//    }
 
     @PostMapping("/albums")
     public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageURL){
@@ -57,5 +58,11 @@ public class AlbumController {
         ));
         m.addAttribute("albums", albums);
         return "albums";
+    }
+    @GetMapping("/album")
+    public String showAlbum(Model m, @RequestParam("albumId") long albumId){
+        Album album = albumRepository.getOne(albumId);
+        m.addAttribute("album",album);
+        return "album";
     }
 }
