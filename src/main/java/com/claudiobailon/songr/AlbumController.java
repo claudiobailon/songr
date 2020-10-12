@@ -19,11 +19,11 @@ public class AlbumController {
     @Autowired
     public SongRepository songRepository;
 
-    @PostMapping("/albums/delete/{id}")//ToDo: Should this route be album not albums? Same for line 27
-    public RedirectView removeAlbum(@PathVariable long id){
-        albumRepository.deleteById(id);
-        return new RedirectView("/albums");
-    }
+//    @PostMapping("/albums/delete/{id}")//ToDo: Should this route be album not albums? Same for line 27
+//    public RedirectView removeAlbum(@PathVariable long id){
+//        albumRepository.deleteById(id);
+//        return new RedirectView("/albums");
+//    }
 
     @PostMapping("/albums")
     public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageURL){

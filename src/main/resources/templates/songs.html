@@ -9,13 +9,13 @@
 <body>
     <div th:each="song : ${songs}">
         <p th:text="${song.title}"></p>
-        <p th:text="'Artist ' + ${song.album.artist}"></p>
+        <p th:text="'Artist: ' + ${song.album.artist}"></p>
         <p th:text="'Album: ' + ${song.album.title}"></p>
         <p th:text="'Track #: ' + ${song.trackNumber}"></p>
         <p th:text="'Length(seconds): ' + ${song.length}"></p>
-        <form action="/album" method="GET">
+        <form class="view" action="/album" method="GET">
             <input type="hidden" name="albumId" th:value="${song.album.getId()}">
-            <input type="submit" value="Go to album">
+            <button type="submit">View Album</button>
         </form>
     </div>
 
